@@ -190,8 +190,8 @@ const Default = memo((props) => {
     case "/formacao/formacao-list":
     case "/curso/curso-add":
     case "/curso/curso-list":
-    case "/funcionario/funcionario-add":
-    case "/funcionario/funcionario-list":
+    case "/provincias/provincia-add":
+    case "/provincias/provincia-list":
     case "/perfil-saida/perfil-conf":
     case "/perfil-saida/perfil-ver":
     case "/inscritos/inscritos-list":
