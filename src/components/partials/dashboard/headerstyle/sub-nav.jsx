@@ -660,7 +660,9 @@ const SunNav = () => {
               />
 
               <div className="caption ms-3 d-none d-md-block ">
-                <h6 className="mb-0 caption-title">Ministério da Educação</h6>
+                <h6 className="mb-0 caption-title">
+                  Ministério da Educação (Luanda)
+                </h6>
                 <p className="mb-0 caption-sub-title">Governo de Angola</p>
               </div>
             </Dropdown.Toggle>

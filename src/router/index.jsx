@@ -14,11 +14,11 @@ const VerPerfil = lazy(() =>
 );
 
 ///Formação
-const FormacaoAdd = lazy(() =>
-  import("../views/dashboard/formacao/formacao-add")
+const ProvinciaAdd = lazy(() =>
+  import("../views/dashboard/provincia/provincia-add")
 );
-const FormacaoList = lazy(() =>
-  import("../views/dashboard/formacao/formacao-list")
+const ProvinciaList = lazy(() =>
+  import("../views/dashboard/provincia/provincia-list")
 );
 
 ///Formação
@@ -31,15 +31,6 @@ const InscritosAceitesList = lazy(() =>
 const InscritosRejeitoList = lazy(() =>
   import("../views/dashboard/inscritos/rejeitado-list")
 );
-
-///Formação
-const FuncionarioAdd = lazy(() =>
-  import("../views/dashboard/funcionarios/funcionario-add")
-);
-const FuncionarioList = lazy(() =>
-  import("../views/dashboard/funcionarios/funcionario-list")
-);
-
 //layoutpages
 import Default from "../layouts/dashboard/default";
 import Horizontal from "../layouts/dashboard/horizontal";
@@ -234,10 +225,6 @@ const IndexRouters = memo(() => {
         <Route path="/perfil-saida/perfil-conf" element={<ConfPerfil />} />
         <Route path="/perfil-saida/perfil-ver" element={<VerPerfil />} />
 
-        {/* Formação */}
-        <Route path="/formacao/formacao-add" element={<FormacaoAdd />} />
-        <Route path="/formacao/formacao-list" element={<FormacaoList />} />
-
         {/* Inscritos */}
         <Route path="/inscritos/inscritos-list" element={<InscritosList />} />
         <Route
@@ -250,14 +237,8 @@ const IndexRouters = memo(() => {
         />
 
         {/* Formação */}
-        <Route
-          path="/funcionario/funcionario-add"
-          element={<FuncionarioAdd />}
-        />
-        <Route
-          path="/funcionario/funcionario-list"
-          element={<FuncionarioList />}
-        />
+        <Route path="/provincias/provincia-add" element={<ProvinciaAdd />} />
+        <Route path="/provincias/provincia-list" element={<ProvinciaList />} />
 
         {/* user */}
         <Route path="/app/user-profile" element={<UserProfile />} />

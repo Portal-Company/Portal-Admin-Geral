@@ -735,7 +735,7 @@ const VerticalNav = memo(() => {
                 </svg>
               </i>
             </OverlayTrigger>
-            <span className="item-name">Funcionários</span>
+            <span className="item-name">Provincia</span>
             <i className="right-icon">
               <svg
                 className="icon-18"
@@ -760,11 +760,11 @@ const VerticalNav = memo(() => {
               <Nav.Item as="li">
                 <Link
                   className={`${
-                    location.pathname === "/funcionario/funcionario-add"
+                    location.pathname === "/provincias/provincia-add"
                       ? "active"
                       : ""
                   } nav-link`}
-                  to="/funcionario/funcionario-add"
+                  to="/provincias/provincia-add"
                 >
                   <i className="icon">
                     <svg
@@ -786,21 +786,21 @@ const VerticalNav = memo(() => {
                   </i>
                   <OverlayTrigger
                     placement="right"
-                    overlay={<Tooltip>Adicionar Funcionario</Tooltip>}
+                    overlay={<Tooltip>Adicionar Provincia</Tooltip>}
                   >
                     <i className="sidenav-mini-icon"> A </i>
                   </OverlayTrigger>
-                  <span className="item-name">Adicionar Funcionário</span>
+                  <span className="item-name">Adicionar Província</span>
                 </Link>
               </Nav.Item>
               <Nav.Item as="li">
                 <Link
                   className={`${
-                    location.pathname === "/funcionario/funcionario-list"
+                    location.pathname === "/provincias/provincia-list"
                       ? "active"
                       : ""
                   } nav-link`}
-                  to="/funcionario/funcionario-list"
+                  to="/provincias/provincia-list"
                 >
                   <i className="icon">
                     <svg
@@ -826,7 +826,7 @@ const VerticalNav = memo(() => {
                   >
                     <i className="sidenav-mini-icon"> U </i>
                   </OverlayTrigger>
-                  <span className="item-name">Listar Funcionário</span>
+                  <span className="item-name">Listar Provincias</span>
                 </Link>
               </Nav.Item>
             </ul>

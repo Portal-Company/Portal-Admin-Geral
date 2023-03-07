@@ -603,7 +603,7 @@ const Crypto = memo((props) => {
             <Card.Body>
               <div className="d-flex justify-content-between mb-2">
                 <div className="d-flex align-items-center">
-                  <h6 className="mb-0">Total de Inscritos</h6>
+                  <h6 className="mb-0">Total de Inscritos (Luanda)</h6>
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle
@@ -655,7 +655,9 @@ const Crypto = memo((props) => {
             <Card.Body>
               <div className="d-flex justify-content-between mb-2">
                 <div className="d-flex align-items-center">
-                  <h6 className="mb-0 ms-2">Total de Alunos Rejeitados</h6>
+                  <h6 className="mb-0 ms-2">
+                    Total de Alunos Rejeitados (Luanda)
+                  </h6>
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle
@@ -707,7 +709,9 @@ const Crypto = memo((props) => {
             <Card.Body>
               <div className="d-flex justify-content-between mb-2">
                 <div className="d-flex align-items-center">
-                  <h6 className="mb-0 ms-2">Total de Inscritos Apurados</h6>
+                  <h6 className="mb-0 ms-2">
+                    Total de Inscritos Apurados (Luanda)
+                  </h6>
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle
@@ -745,7 +749,7 @@ const Crypto = memo((props) => {
             <Card.Body>
               <div className="d-flex justify-content-between mb-2">
                 <div className="d-flex align-items-center">
-                  <h6 className="mb-0 ms-2">Total de Funcionários</h6>
+                  <h6 className="mb-0 ms-2">Total de Escola (Luanda)</h6>
                 </div>
                 <Dropdown>
                   <Dropdown.Toggle
