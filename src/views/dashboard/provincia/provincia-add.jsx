@@ -27,7 +27,7 @@ const FuncionarioAdd = memo(() => {
           <Card>
             <Card.Header className="d-flex justify-content-between">
               <div className="header-title">
-                <h4 className="card-title">Nova Escola</h4>
+                <h4 className="card-title">Nova Província</h4>
               </div>
             </Card.Header>
             <Card.Body>
@@ -98,9 +98,8 @@ const FuncionarioAdd = memo(() => {
                     className="selectpicker form-control"
                     data-style="py-0"
                   >
-                    <option>Ensino Primario</option>
-                    <option>Ensino Secundário</option>
-                    <option>Ensino Médio</option>
+                    <option>Normal</option>
+                    <option>Capital</option>
                   </select>
                 </Form.Group>
 
@@ -120,7 +119,7 @@ const FuncionarioAdd = memo(() => {
           <Card>
             <Card.Header className="d-flex justify-content-between">
               <div className="header-title">
-                <h4 className="card-title">Informações da nova escola</h4>
+                <h4 className="card-title">Informações da nova província</h4>
               </div>
             </Card.Header>
             <Card.Body>
@@ -128,7 +127,9 @@ const FuncionarioAdd = memo(() => {
                 <Form>
                   <div className="row">
                     <Form.Group className="col-md-6 form-group">
-                      <Form.Label htmlFor="fname">Name:</Form.Label>
+                      <Form.Label htmlFor="fname">
+                        Name da Província:
+                      </Form.Label>
                       <Form.Control
                         type="text"
                         id="fname"
@@ -136,35 +137,22 @@ const FuncionarioAdd = memo(() => {
                       />
                     </Form.Group>
                     <Form.Group className="col-md-6 form-group">
-                      <Form.Label htmlFor="lname">Localização:</Form.Label>
+                      <Form.Label htmlFor="lname">
+                        Nome do Governador (a) Provincial:
+                      </Form.Label>
                       <Form.Control
                         type="text"
                         id="lname"
-                        placeholder="Luanda Vila Alice"
+                        placeholder="Nome do Governador"
                       />
                     </Form.Group>
+
                     <Form.Group className="col-md-6 form-group">
-                      <Form.Label htmlFor="add1">E-mail:</Form.Label>
-                      <Form.Control
-                        type="email"
-                        id="add1"
-                        placeholder="Email"
-                      />
-                    </Form.Group>
-                    <Form.Group className="col-md-6 form-group">
-                      <Form.Label htmlFor="add2">Telefone</Form.Label>
+                      <Form.Label htmlFor="add2">Área da Província</Form.Label>
                       <Form.Control
                         type="number"
                         id="add2"
-                        placeholder="Número de telefone"
-                      />
-                    </Form.Group>
-                    <Form.Group className="col-md-6 form-group">
-                      <Form.Label htmlFor="add2">NIF</Form.Label>
-                      <Form.Control
-                        type="number"
-                        id="add2"
-                        placeholder="Número de telefone"
+                        placeholder="2.417 km2"
                       />
                     </Form.Group>
                   </div>
