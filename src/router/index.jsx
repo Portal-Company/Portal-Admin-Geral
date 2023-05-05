@@ -14,11 +14,11 @@ const VerPerfil = lazy(() =>
 );
 
 ///Formação
-const ProvinciaAdd = lazy(() =>
-  import("../views/dashboard/provincia/provincia-add")
+const FormacaoAdd = lazy(() =>
+  import("../views/dashboard/formacao/formacao-add")
 );
-const ProvinciaList = lazy(() =>
-  import("../views/dashboard/provincia/provincia-list")
+const FormacaoList = lazy(() =>
+  import("../views/dashboard/formacao/formacao-list")
 );
 
 ///Formação
@@ -31,6 +31,21 @@ const InscritosAceitesList = lazy(() =>
 const InscritosRejeitoList = lazy(() =>
   import("../views/dashboard/inscritos/rejeitado-list")
 );
+
+///Formação
+const EscolaAdd = lazy(() => import("../views/dashboard/escola/escola-add"));
+const EscolaList = lazy(() => import("../views/dashboard/escola/escola-list"));
+
+const ProvinceAdd = lazy(() =>
+  import("../views/dashboard/provincia/provincia-add")
+);
+const ProvinceList = lazy(() =>
+  import("../views/dashboard/provincia/provincia-list")
+);
+
+const UserAdd1 = lazy(() => import("../views/dashboard/user/user-add"));
+const UserList1 = lazy(() => import("../views/dashboard/user/user-list"));
+
 //layoutpages
 import Default from "../layouts/dashboard/default";
 import Horizontal from "../layouts/dashboard/horizontal";
@@ -56,10 +71,10 @@ const Maintenance = lazy(() => import("../views/dashboard/errors/maintenance"));
 const Index = lazy(() => import("../views/dashboard/index"));
 
 // User
-const UserProfile = lazy(() => import("../views/dashboard/app/user-profile"));
-const UserAdd = lazy(() => import("../views/dashboard/app/user-add"));
+// const UserProfile = lazy(() => import("../views/dashboard/app/user-profile"));
+const UserAdd = lazy(() => import("../views/dashboard/app/categoria-add"));
 
-const UserList = lazy(() => import("../views/dashboard/app/user-list"));
+const UserList = lazy(() => import("../views/dashboard/app/categoria-list"));
 // const userProfileEdit = lazy(() => import('../views/dashboard/app/user-privacy-setting'))
 
 // widget
@@ -221,9 +236,20 @@ const IndexRouters = memo(() => {
         <Route path="/curso/curso-add" element={<CursoAdd />} />
         <Route path="/curso/curso-list" element={<CursoList />} />
 
+        {/* Curso */}
+        <Route path="/user/user-add" element={<UserAdd1 />} />
+        <Route path="/user/user-list" element={<UserList1 />} />
+
+        <Route path="/provincia/provincia-add" element={<ProvinceAdd />} />
+        <Route path="/provincia/provincia-list" element={<ProvinceList />} />
+
         {/* Perfil Saída */}
         <Route path="/perfil-saida/perfil-conf" element={<ConfPerfil />} />
         <Route path="/perfil-saida/perfil-ver" element={<VerPerfil />} />
+
+        {/* Formação */}
+        <Route path="/formacao/formacao-add" element={<FormacaoAdd />} />
+        <Route path="/formacao/formacao-list" element={<FormacaoList />} />
 
         {/* Inscritos */}
         <Route path="/inscritos/inscritos-list" element={<InscritosList />} />
@@ -237,11 +263,11 @@ const IndexRouters = memo(() => {
         />
 
         {/* Formação */}
-        <Route path="/provincias/provincia-add" element={<ProvinciaAdd />} />
-        <Route path="/provincias/provincia-list" element={<ProvinciaList />} />
+        <Route path="/escolas/escola-add" element={<EscolaAdd />} />
+        <Route path="/escolas/escola-list" element={<EscolaList />} />
 
         {/* user */}
-        <Route path="/app/user-profile" element={<UserProfile />} />
+        {/* <Route path="/app/user-profile" element={<UserProfile />} /> */}
 
         <Route path="/app/user-add" element={<UserAdd />} />
         <Route path="/app/user-list" element={<UserList />} />

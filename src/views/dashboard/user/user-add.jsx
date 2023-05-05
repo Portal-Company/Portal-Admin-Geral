@@ -22,55 +22,43 @@ import { getUserInfo } from "../auth/services";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { api } from "../../../services";
-import { mutate } from "swr";
 
 const FuncionarioAdd = memo(() => {
   const [isProf, setProf] = useState(false);
   const user = getUserInfo();
   const [isSubmiting, setIsSubmiting] = useState(false);
-  const { data: userD } = useFetch(`/user/list/${user?.sub}`);
-  const [userData, setUserData] = useState(userD);
+  const { data: userData } = useFetch(`/user/list/${user?.sub}`);
   const { data: categoria } = useFetch(`/province/list`);
 
   const formik = useFormik({
     initialValues: {
-      nome: userData?.nome,
-      email: userData?.email,
-      senha: userData?.senha,
-      fotoUrl: userData?.fotoUrl,
-      tipoUsuario: "ADMINISTRADOR_GERAL",
+      nome: "",
+      email: "",
+      senha: "",
+      fotoUrl: "",
+      provinciaId: "",
+      tipoUsuario: "ADMINISTRADOR_PROVINCIAL",
     },
     validationSchema: yup.object({
       nome: yup.string().required("Este campo é obrigatório"),
       fotoUrl: yup.string().required("Este campo  é obrigatório"),
       senha: yup.string().required("Este campo  é obrigatório"),
       email: yup.string().required("Este campo  é obrigatório"),
+      provinciaId: yup.string().required("Este campo  é obrigatório"),
       tipoUsuario: yup.string().required("Este campo  é obrigatório"),
     }),
     onSubmit: async (data) => {
       try {
         setIsSubmiting(true);
-        if (data?.fotoUrl === userData?.fotoUrl) {
-          const response = await api.put(`/user/put/${userData?.id}`, data);
+        const formData = new FormData();
+        formData.append("file", data?.fotoUrl[0]);
+        const fotoUrl = await getFile(formData);
+        if (fotoUrl) {
+          data = { ...data, fotoUrl: fotoUrl?.id };
+          const response = await api.post("/user/post", data);
           if (response) {
-            mutate(`/user/list/${user?.sub}`);
-            setUserData(userD);
-            toast.success("Administrador actualizado com sucesso");
+            toast.success("Administrador cadastrado com sucesso");
             formik.resetForm();
-          }
-        } else {
-          const formData = new FormData();
-          formData.append("file", data?.fotoUrl[0]);
-          const fotoUrl = await getFile(formData);
-          if (fotoUrl) {
-            data = { ...data, fotoUrl: fotoUrl?.id };
-            const response = await api.post(`/user/put/${userData?.id}`, data);
-            if (response) {
-              mutate(`/user/list/${user?.sub}`);
-              setUserData(userD);
-              toast.success("Administrador actualizado com sucesso");
-              formik.resetForm();
-            }
           }
         }
       } catch (err) {
@@ -95,7 +83,9 @@ const FuncionarioAdd = memo(() => {
         <Card>
           <Card.Header className="d-flex justify-content-between">
             <div className="header-title">
-              <h4 className="card-title">Actualizar Administrador</h4>
+              <h4 className="card-title">
+                Cadastrar Administrador (Provincial)
+              </h4>
             </div>
           </Card.Header>
           <Card.Body>
@@ -133,7 +123,7 @@ const FuncionarioAdd = memo(() => {
                       </label>
                     ) : null}
                   </Form.Group>
-                  {/* <Form.Label htmlFor="validationCustom05">
+                  <Form.Label htmlFor="validationCustom05">
                     Provincia
                   </Form.Label>
                   <Form.Select
@@ -154,7 +144,7 @@ const FuncionarioAdd = memo(() => {
                     <label className="mt-1 text-danger">
                       {formik?.errors?.provinciaId}
                     </label>
-                  ) : null} */}
+                  ) : null}
                 </Col>
                 <Col md="6" className="mb-3">
                   <Form.Group className="mb-3 form-group mt-2">
@@ -199,7 +189,7 @@ const FuncionarioAdd = memo(() => {
 
                 <div className="col-12">
                   <Button type="submit" disabled={isSubmiting}>
-                    Actualizar
+                    Cadastrar
                   </Button>
                 </div>
               </Row>
