@@ -27,9 +27,9 @@ const CargoAdd = () => {
     onSubmit: async (data) => {
       try {
         setIsActive(true);
-        const response = await api.post("/province/post", data);
+        const response = await api.post("/category/post", data);
         if (response) {
-          toast.success("Provincia cadastrada com sucesso");
+          toast.success("Categoria cadastrado com sucesso");
           formik.resetForm();
         }
       } catch (err) {
@@ -47,7 +47,7 @@ const CargoAdd = () => {
       <Card>
         <Card.Header className="d-flex justify-content-between">
           <div className="header-title">
-            <h4 className="card-title"> Cadastrar Provincia</h4>
+            <h4 className="card-title"> Cadastrar Categoria</h4>
           </div>
         </Card.Header>
         <Card.Body>
@@ -55,7 +55,7 @@ const CargoAdd = () => {
             <Row>
               <Col md="6" className="mb-3">
                 <Form.Label md="6" htmlFor="validationDefault01">
-                  Nome da Provincia
+                  Nome do Categoria
                 </Form.Label>
                 <Form.Control
                   type="text"
