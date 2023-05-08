@@ -214,6 +214,7 @@ const IndexRouters = memo(() => {
         <Route path="error-500" element={<Error500 />} />
         <Route path="maintenance" element={<Maintenance />} />
       </Route>
+      <Route path="*" element={<Error404 />} />
       {/* auth */}
       <Route path="/auth" element={<Simple />}>
         <Route path="confirm-mail" element={<ConfirmMail />} />
