@@ -43,6 +43,13 @@ const ProvinceList = lazy(() =>
   import("../views/dashboard/provincia/provincia-list")
 );
 
+const MunicipeAdd = lazy(() =>
+  import("../views/dashboard/municipio/municipio-add")
+);
+const MunicipeList = lazy(() =>
+  import("../views/dashboard/municipio/municipio-list")
+);
+
 const UserAdd1 = lazy(() => import("../views/dashboard/user/user-add"));
 const UserList1 = lazy(() => import("../views/dashboard/user/user-list"));
 
@@ -243,6 +250,9 @@ const IndexRouters = memo(() => {
 
         <Route path="/provincia/provincia-add" element={<ProvinceAdd />} />
         <Route path="/provincia/provincia-list" element={<ProvinceList />} />
+
+        <Route path="/municipio/municipio-add" element={<MunicipeAdd />} />
+        <Route path="/municipio/municipio-list" element={<MunicipeList />} />
 
         {/* Perfil Saída */}
         <Route path="/perfil-saida/perfil-conf" element={<ConfPerfil />} />
