@@ -22,7 +22,7 @@ import { ModalUpdate } from "./ModalUpdate";
 const CargoList = memo(() => {
   const user = getUserInfo();
   const { data: userData } = useFetch(`/user/list/${user?.sub}`);
-  const { data: Categoria } = useFetch(`/province/list`);
+  const { data: Categoria } = useFetch(`/county/list`);
   const [item, setItem] = useState({});
 
   console.log(userData);
@@ -31,12 +31,12 @@ const CargoList = memo(() => {
   const [showModalUpdate, setShowModalUpadate] = useState(false);
 
   function handleChange() {
-    mutate(`/province/list`);
+    mutate(`/county/list`);
   }
 
   async function handleDeleteConfirm(id) {
     try {
-      const data = await api.delete(`/province/delete/${id}`);
+      const data = await api.delete(`/county/delete/${id}`);
       if (data?.data) {
         toast.success("deletado com sucesso!");
         handleChange();
@@ -72,7 +72,7 @@ const CargoList = memo(() => {
           onClose={() => setShowModal(false)}
           onConfirm={() => handleDeleteConfirm(item?.id)}
           item={item}
-          desc="provincia de"
+          desc="Municipio de"
         />
       ) : null}
       <Row>
@@ -80,7 +80,7 @@ const CargoList = memo(() => {
           <Card>
             <Card.Header className="d-flex justify-content-between">
               <div className="header-title">
-                <h4 className="card-title">Listagem de Provincia</h4>
+                <h4 className="card-title">Listagem de Municipio</h4>
               </div>
             </Card.Header>
             <Card.Body className="px-0">
@@ -93,9 +93,9 @@ const CargoList = memo(() => {
                 >
                   <thead>
                     <tr className="ligth">
-                      <th>Nome da Provincia</th>
+                      <th>Nome do Municipio</th>
 
-                      <th>Status</th>
+                      <th>Provincia</th>
 
                       <th min-width="100px">Acção</th>
                     </tr>
@@ -105,9 +105,7 @@ const CargoList = memo(() => {
                       <tr key={idx}>
                         <td>{item.nome}</td>
                         <td>
-                          <span className={`badge ${item.color}`}>
-                            {item.status}
-                          </span>
+                          <span>{item?.Provincia?.nome}</span>
                         </td>
 
                         <td>

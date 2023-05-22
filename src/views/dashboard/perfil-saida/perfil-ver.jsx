@@ -28,21 +28,34 @@ const FuncionarioAdd = memo(() => {
   const [isProf, setProf] = useState(false);
   const user = getUserInfo();
   const [isSubmiting, setIsSubmiting] = useState(false);
-  const { data: userD } = useFetch(`/user/list/${user?.sub}`);
-  const [userData, setUserData] = useState(userD);
+  const { data: userData } = useFetch(`/user/list/${user?.sub}`);
   const { data: categoria } = useFetch(`/province/list`);
 
   const formik = useFormik({
     initialValues: {
       nome: userData?.nome,
       email: userData?.email,
-      senha: userData?.senha,
+      senha: "",
       fotoUrl: userData?.fotoUrl,
       tipoUsuario: "ADMINISTRADOR_GERAL",
     },
     validationSchema: yup.object({
       nome: yup.string().required("Este campo é obrigatório"),
-      fotoUrl: yup.string().required("Este campo  é obrigatório"),
+      fotoUrl: yup
+        .mixed()
+        .test(
+          "isImage",
+          "Por favor selecione um arquivo de imagem válido!",
+          (value) => {
+            if (!value) return true; // permite que o campo seja vazio
+            return (
+              value &&
+              ["image/png", "image/jpg", "image/jpeg", "image/gif"].includes(
+                value.type
+              )
+            );
+          }
+        ),
       senha: yup.string().required("Este campo  é obrigatório"),
       email: yup.string().required("Este campo  é obrigatório"),
       tipoUsuario: yup.string().required("Este campo  é obrigatório"),
@@ -53,10 +66,9 @@ const FuncionarioAdd = memo(() => {
         if (data?.fotoUrl === userData?.fotoUrl) {
           const response = await api.put(`/user/put/${userData?.id}`, data);
           if (response) {
-            mutate(`/user/list/${user?.sub}`);
-            setUserData(userD);
-            toast.success("Administrador actualizado com sucesso");
             formik.resetForm();
+            mutate(`/user/list/${user?.sub}`);
+            toast.success("Administrador actualizado com sucesso");
           }
         } else {
           const formData = new FormData();
@@ -66,10 +78,9 @@ const FuncionarioAdd = memo(() => {
             data = { ...data, fotoUrl: fotoUrl?.id };
             const response = await api.post(`/user/put/${userData?.id}`, data);
             if (response) {
-              mutate(`/user/list/${user?.sub}`);
-              setUserData(userD);
-              toast.success("Administrador actualizado com sucesso");
               formik.resetForm();
+              mutate(`/user/list/${user?.sub}`);
+              toast.success("Administrador actualizado com sucesso");
             }
           }
         }

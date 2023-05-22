@@ -208,6 +208,8 @@ const Default = memo((props) => {
     case "/inscritos/rejeitados-list":
     case "/provincia/provincia-list":
     case "/provincia/provincia-add":
+    case "/municipio/municipio-list":
+    case "/municipio/municipio-add":
     case "/user/user-list":
     case "/user/user-add":
       subHeader = <SubHeader />;
