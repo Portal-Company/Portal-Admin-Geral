@@ -17,7 +17,7 @@ import facebook from "/src/assets/images/brands/fb.svg";
 import google from "/src/assets/images/brands/gm.svg";
 import instagram from "/src/assets/images/brands/im.svg";
 import linkedin from "/src/assets/images/brands/li.svg";
-import auth1 from "/src/assets/images/auth/01.png";
+import auth1 from "/src/assets/images/ben-white-83tkHLPgg2Q-unsplash.jpg";
 import { setCookie } from "nookies";
 // Import selectors & action from setting store
 import * as SettingSelector from "../../../store/setting/selectors";
@@ -71,8 +71,11 @@ const SignIn = memo(() => {
 
   return (
     <Fragment>
-      <section className="login-content">
-        <Row className="row m-0 align-items-center bg-white">
+      <section className="login-content" style={{ width: "100%" }}>
+        <Row
+          className="row m-0 align-items-center bg-white"
+          style={{ height: "100vh" }}
+        >
           <Col md="12" lg="6" className="align-self-center">
             <Link
               to="/"
@@ -149,18 +152,18 @@ const SignIn = memo(() => {
                           </Form.Group>
                         </Col>
                         <Col lg="12" className="d-flex justify-content-between">
-                          <Form.Check className="form-check mb-3">
-                            <Form.Check.Input
+                          {/* <Form.Check className="form-check mb-3"> */}
+                          {/* <Form.Check.Input
                               type="checkbox"
                               id="customCheck1"
-                            />
-                            <Form.Check.Label htmlFor="customCheck1">
+                            /> */}
+                          {/* <Form.Check.Label htmlFor="customCheck1">
                               Lembre-me
-                            </Form.Check.Label>
-                          </Form.Check>
-                          <Link to="/auth/recoverpw">
+                            </Form.Check.Label> */}
+                          {/* </Form.Check> */}
+                          {/* <Link to="/auth/recoverpw">
                             Esqueceu a sua senha?
-                          </Link>
+                          </Link> */}
                         </Col>
                       </Row>
                       <div className="d-flex justify-content-center">
@@ -170,13 +173,13 @@ const SignIn = memo(() => {
                           variant="btn btn-primary"
                           disabled={isSubmiting}
                         >
-                          Sign In
+                          Entrar
                         </Button>
                       </div>
-                      <p className="text-center my-3">
+                      {/* <p className="text-center my-3">
                         Entrar com outras redes
-                      </p>
-                      <div className="d-flex justify-content-center">
+                      </p> */}
+                      {/* <div className="d-flex justify-content-center">
                         <ListGroup
                           as="ul"
                           className="list-group-horizontal list-group-flush"
@@ -202,7 +205,7 @@ const SignIn = memo(() => {
                             </Link>
                           </ListGroup.Item>
                         </ListGroup>
-                      </div>
+                      </div> */}
                       {/* <p className="mt-3 text-center">
                         Não tem uma conta?{" "}
                         <Link to="/auth/sign-up" className="text-underline">
@@ -218,11 +221,12 @@ const SignIn = memo(() => {
           <Col
             md="6"
             className="d-md-block d-none bg-primary p-0 mt-n1  overflow-hidden"
+            style={{ width: "50%", height: "100%" }}
           >
             <Image
-              src={auth1}
               className="Image-fluid gradient-main"
               alt="images"
+              src={auth1}
             />
           </Col>
         </Row>
