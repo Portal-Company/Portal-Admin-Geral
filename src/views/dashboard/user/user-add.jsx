@@ -47,7 +47,7 @@ const FuncionarioAdd = memo(() => {
           "isImage",
           "Por favor selecione um arquivo de imagem válido!",
           (value) => {
-            if (!value) return true; // permite que o campo seja vazio
+            if (value) return true; // permite que o campo seja vazio
             return (
               value &&
               ["image/png", "image/jpg", "image/jpeg", "image/gif"].includes(

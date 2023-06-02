@@ -78,7 +78,7 @@ const FuncionarioAdd = memo(() => {
           const fotoUrl = await getFile(formData);
           if (fotoUrl) {
             data = { ...data, fotoUrl: fotoUrl?.id };
-            const response = await api.post(`/user/put/${userData?.id}`, data);
+            const response = await api.put(`/user/put/${userData?.id}`, data);
             if (response) {
               formik.resetForm();
               mutate(`/user/list/${user?.sub}`);
