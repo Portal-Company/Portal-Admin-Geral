@@ -757,7 +757,7 @@ const VerticalNav = memo(() => {
 
           <Accordion.Collapse eventKey="area-disciplina">
             <ul className="sub-nav">
-              <Nav.Item as="li">
+              {/* <Nav.Item as="li">
                 <Link
                   className={`${
                     location.pathname === "/escolas/escola-add" ? "active" : ""
@@ -790,7 +790,7 @@ const VerticalNav = memo(() => {
                   </OverlayTrigger>
                   <span className="item-name">Adicionar Escola</span>
                 </Link>
-              </Nav.Item>
+              </Nav.Item> */}
               <Nav.Item as="li">
                 <Link
                   className={`${
