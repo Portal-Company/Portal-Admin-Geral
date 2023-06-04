@@ -34,7 +34,7 @@ const FormValidation = () => {
           "isImage",
           "Por favor selecione um arquivo de imagem válido!",
           (value) => {
-            if (!value) return true; // permite que o campo seja vazio
+            if (value) return true; // permite que o campo seja vazio
             return (
               value &&
               ["image/png", "image/jpg", "image/jpeg", "image/gif"].includes(
@@ -149,6 +149,7 @@ const FormValidation = () => {
                   </Form.Label>
                   <Form.Control
                     type="file"
+                    accept="image/png, image/jpg, image/jpeg, image/gif"
                     id="fotoUrl"
                     name="fotoUrl"
                     onChange={(event) => {
