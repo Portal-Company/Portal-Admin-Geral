@@ -37,7 +37,8 @@ const FuncionarioAdd = memo(() => {
     initialValues: {
       nome: userData?.nome,
       email: userData?.email,
-      senha: "",
+      senhaActual: "",
+      confirmarSenhaNova: "",
       senhaNova: "",
       fotoUrl: userData?.fotoUrl,
       tipoUsuario: "ADMINISTRADOR_GERAL",
@@ -175,6 +176,7 @@ const FuncionarioAdd = memo(() => {
                       Carregar imagem
                     </Form.Label>
                     <Form.Control
+                      accept="image/png, image/jpg, image/jpeg, image/gif"
                       type="file"
                       id="fotoUrl"
                       name="fotoUrl"
@@ -210,7 +212,7 @@ const FuncionarioAdd = memo(() => {
                   </Form.Group>
                   <Form.Group className="mb-3 form-group mt-2">
                     <Form.Label htmlFor="exampleFormControlTextarea1">
-                      Confirmar Senha
+                      Nova Senha
                     </Form.Label>
                     <Form.Control
                       type="password"
@@ -222,6 +224,24 @@ const FuncionarioAdd = memo(() => {
                     {formik?.touched?.senhaNova && formik?.errors?.senhaNova ? (
                       <label className="mt-1 text-danger">
                         {formik?.errors?.senhaNova}
+                      </label>
+                    ) : null}
+                  </Form.Group>
+                  <Form.Group className="mb-3 form-group mt-2">
+                    <Form.Label htmlFor="exampleFormControlTextarea1">
+                      Confirmar Senha
+                    </Form.Label>
+                    <Form.Control
+                      type="password"
+                      id="confirmarSenhaNova"
+                      value={formik.values.confirmarSenhaNova}
+                      name="confirmarSenhaNova"
+                      onChange={formik.handleChange}
+                    />
+                    {formik?.touched?.confirmarSenhaNova &&
+                    formik?.errors?.confirmarSenhaNova ? (
+                      <label className="mt-1 text-danger">
+                        {formik?.errors?.confirmarSenhaNova}
                       </label>
                     ) : null}
                   </Form.Group>
