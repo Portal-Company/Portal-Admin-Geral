@@ -67,6 +67,10 @@ import TwoFactor from "../views/dashboard/auth/two-factor";
 const ConfirmMail = lazy(() => import("../views/dashboard/auth/confirm-mail"));
 const LockScreen = lazy(() => import("../views/dashboard/auth/lock-screen"));
 const Recoverpw = lazy(() => import("../views/dashboard/auth/recoverpw"));
+const ResetPassword = lazy(() =>
+  import("../views/dashboard/auth/resetPassword/[token]")
+);
+
 const SignIn = lazy(() => import("../views/dashboard/auth/sign-in"));
 const SignUp = lazy(() => import("../views/dashboard/auth/sign-up"));
 // errors
@@ -226,6 +230,7 @@ const IndexRouters = memo(() => {
       <Route path="/auth" element={<Simple />}>
         <Route path="confirm-mail" element={<ConfirmMail />} />
         <Route path="lock-screen" element={<LockScreen />} />
+        <Route path="resetPassword/:token" element={<ResetPassword />} />
         <Route path="recoverpw" element={<Recoverpw />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
