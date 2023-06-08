@@ -62,11 +62,17 @@ import Simple from "../layouts/dashboard/simple";
 
 import AccountDeactive from "../views/dashboard/auth/account-deactivate";
 import TwoFactor from "../views/dashboard/auth/two-factor";
+import { PrivateRoute } from "./privateRoute";
+import { PublicRoute } from "./pulicRoute";
 
 // auth
 const ConfirmMail = lazy(() => import("../views/dashboard/auth/confirm-mail"));
 const LockScreen = lazy(() => import("../views/dashboard/auth/lock-screen"));
 const Recoverpw = lazy(() => import("../views/dashboard/auth/recoverpw"));
+const ResetPassword = lazy(() =>
+  import("../views/dashboard/auth/resetPassword/[token]")
+);
+
 const SignIn = lazy(() => import("../views/dashboard/auth/sign-in"));
 const SignUp = lazy(() => import("../views/dashboard/auth/sign-up"));
 // errors
@@ -223,9 +229,17 @@ const IndexRouters = memo(() => {
       </Route>
       <Route path="*" element={<Error404 />} />
       {/* auth */}
-      <Route path="/auth" element={<Simple />}>
+      <Route
+        path="/auth"
+        element={
+          <PublicRoute>
+            <Simple />
+          </PublicRoute>
+        }
+      >
         <Route path="confirm-mail" element={<ConfirmMail />} />
         <Route path="lock-screen" element={<LockScreen />} />
+        <Route path="resetPassword/:token" element={<ResetPassword />} />
         <Route path="recoverpw" element={<Recoverpw />} />
         <Route path="sign-in" element={<SignIn />} />
         <Route path="sign-up" element={<SignUp />} />
@@ -235,7 +249,14 @@ const IndexRouters = memo(() => {
       <Route path="/index-dual-compact" element={<DualCompact />}></Route>
       <Route path="/index-horizontal" element={<Horizontal />}></Route>
       <Route path="/index-boxed" element={<Boxed />}></Route>
-      <Route path="/" element={<Default />}>
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <Default />
+          </PrivateRoute>
+        }
+      >
         <Route path="/" element={<Crypto />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/crypto" element={<Crypto />} />

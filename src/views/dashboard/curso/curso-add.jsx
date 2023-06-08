@@ -33,7 +33,7 @@ const Cursos = () => {
           "isImage",
           "Por favor selecione um arquivo de imagem válido!",
           (value) => {
-            if (!value) return true; // permite que o campo seja vazio
+            if (value) return true; // permite que o campo seja vazio
             return (
               value &&
               ["image/png", "image/jpg", "image/jpeg", "image/gif"].includes(
@@ -152,6 +152,7 @@ const Cursos = () => {
                     type="file"
                     id="fotoUrl"
                     name="fotoUrl"
+                    accept="image/png, image/jpg, image/jpeg, image/gif"
                     onChange={(event) => {
                       formik.setFieldValue(
                         "fotoUrl",
