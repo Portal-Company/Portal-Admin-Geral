@@ -52,7 +52,7 @@ const SignIn = memo(() => {
         setIsSubmiting(true);
         const response = await api.post("/auth/login", data);
         const { token, user } = response.data;
-        setCookie(null, "token", token, { path: "/" });
+        setCookie(null, "token_geral", token, { path: "/" });
         if (response.data && user?.tipoUsuario === "ADMINISTRADOR_GERAL") {
           history("/");
         } else {
