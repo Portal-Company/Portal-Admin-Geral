@@ -25,7 +25,7 @@ const CargoList = memo(() => {
   const { data: Categoria } = useFetch(`/county/list`);
   const [item, setItem] = useState({});
 
-  console.log(userData);
+  console.log(Categoria);
 
   const [showModal, setShowModal] = useState(false);
   const [showModalUpdate, setShowModalUpadate] = useState(false);
