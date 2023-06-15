@@ -247,7 +247,7 @@ const VerticalNav = memo(() => {
           </Accordion.Collapse>
         </Accordion.Item> */}
 
-        {/* <Accordion.Item
+        <Accordion.Item
           as="li"
           eventKey="utilities-error"
           bsPrefix={`nav-item ${active === "error" ? "active" : ""} `}
@@ -284,7 +284,7 @@ const VerticalNav = memo(() => {
                 </svg>
               </i>
             </OverlayTrigger>
-            <span className="item-name">Area de Formação</span>
+            <span className="item-name">Anúncios</span>
             <i className="right-icon">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -339,10 +339,10 @@ const VerticalNav = memo(() => {
                   >
                     <i className="sidenav-mini-icon"> A </i>
                   </OverlayTrigger>
-                  <span className="item-name">Adicionar Formação</span>
+                  <span className="item-name">Criar Anúncio</span>
                 </Link>
               </Nav.Item>
-              <Nav.Item as="li">
+              {/* <Nav.Item as="li">
                 <Link
                   className={`${
                     location.pathname === "/formacao/formacao-list"
@@ -375,12 +375,12 @@ const VerticalNav = memo(() => {
                   >
                     <i className="sidenav-mini-icon"> U </i>
                   </OverlayTrigger>
-                  <span className="item-name">Listar Formação</span>
+                  <span className="item-name">Listar Anúncios</span>
                 </Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </ul>
           </Accordion.Collapse>
-        </Accordion.Item> */}
+        </Accordion.Item>
 
         <Accordion.Item
           as="li"

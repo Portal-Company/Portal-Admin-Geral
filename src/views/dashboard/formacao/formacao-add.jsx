@@ -72,9 +72,12 @@ const FormValidation = () => {
   });
 
   async function getFile(data) {
-    const dataD = await api.post("/file", data);
-
-    return dataD.data;
+    try {
+      const dataD = await api.post("/file", data);
+      return dataD.data;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
@@ -82,10 +85,10 @@ const FormValidation = () => {
       <Card>
         <Card.Header className="d-flex justify-content-between">
           <div className="header-title">
-            <h4 className="card-title">Cadastrar Area de Formação</h4>
+            <h4 className="card-title">Criar Anúncio</h4>
           </div>
         </Card.Header>
-        <Card.Body>
+        {/* <Card.Body>
           <Form onSubmit={formik?.handleSubmit} encType="multipart/form-data">
             <Row className="mb-3">
               <Col md="6" className="mb-3">
@@ -103,14 +106,20 @@ const FormValidation = () => {
                     {formik?.errors?.nome}
                   </label>
                 ) : null}
-                <Form.Label htmlFor="validationCustom05">Categoria</Form.Label>
+
+                <Form.Label
+                  style={{ marginTop: "1rem" }}
+                  htmlFor="validationCustom05"
+                >
+                  Tipo
+                </Form.Label>
                 <Form.Select
                   id="categoriaId"
                   name="categoriaId"
                   required
                   onChange={formik.handleChange}
                 >
-                  <option defaultChecked>Selecione um Categoria</option>
+                  <option defaultChecked>Selecione o tipo de Anúncio</option>
                   {categoria?.map((item) => (
                     <option key={item?.id} value={item?.id}>
                       {item?.nome}
@@ -122,7 +131,25 @@ const FormValidation = () => {
                     {formik?.errors?.categoriaId}
                   </label>
                 ) : null}
-
+                <Form.Label
+                  htmlFor="validationCustom05"
+                  style={{ marginTop: "1rem" }}
+                >
+                  Data de Início
+                </Form.Label>
+                <Form.Control
+                  onChange={formik.handleChange}
+                  name="nome"
+                  value={formik.values.nome}
+                  type="date"
+                  id="nome"
+                  required
+                />
+                {formik?.touched?.nome && formik?.errors?.nome ? (
+                  <label className="mt-1 text-danger">
+                    {formik?.errors?.nome}
+                  </label>
+                ) : null}
                 <Form.Group className="mb-3 form-group mt-2">
                   <Form.Label htmlFor="exampleFormControlTextarea1">
                     Descrição
@@ -142,7 +169,7 @@ const FormValidation = () => {
                   ) : null}
                 </Form.Group>
               </Col>
-              <Col md="6" className="mb-3">
+              {/* <Col md="6" className="mb-3">
                 <Form.Group className="mb-3 form-group mt-2">
                   <Form.Label className="custom-file-input">
                     Carregar imagem
@@ -165,15 +192,18 @@ const FormValidation = () => {
                     </label>
                   ) : null}
                 </Form.Group>
-              </Col>
+              </Col> */}
 
-              <div className="col-12">
+        {/* <div className="col-12">
                 <Button type="submit" disabled={isSubmiting}>
-                  Cadastrar
+                  Criar
                 </Button>
               </div>
             </Row>
-          </Form>
+          </Form> */}
+        {/* </Card.Body> */}
+        <Card.Body>
+          <Button>Activar</Button>
         </Card.Body>
       </Card>
     </Row>

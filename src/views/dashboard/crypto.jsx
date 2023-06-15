@@ -9,6 +9,11 @@ import {
   InputGroup,
 } from "react-bootstrap";
 
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 //apexcharts
 import Chart from "react-apexcharts";
 
@@ -47,10 +52,11 @@ const Crypto = memo((props) => {
   const { data: userData } = useFetch(`/user/list/${User?.sub}`);
   const [data, setData] = useState(userData);
   const { data: statistc } = useFetch(`/statistic/general`);
+  const { data: Category } = useFetch(`/category/list`);
   const [view, setView] = useState("");
   const [view2, setView2] = useState("");
 
-  console.log(statistc);
+  console.log(statistc, "minha");
 
   const getVariableColor = () => {
     let prefix =
@@ -307,166 +313,11 @@ const Crypto = memo((props) => {
     series: [
       {
         data: [
-          {
-            x: new Date(1538778600000),
-            y: [6629.81, 6650.5, 6623.04, 6633.33],
-          },
-          {
-            x: new Date(1538780400000),
-            y: [6632.01, 6643.59, 6620, 6630.11],
-          },
-          {
-            x: new Date(1538782200000),
-            y: [6630.71, 6648.95, 6623.34, 6635.65],
-          },
-          {
-            x: new Date(1538784000000),
-            y: [6635.65, 6651, 6629.67, 6638.24],
-          },
-          {
-            x: new Date(1538785800000),
-            y: [6638.24, 6640, 6620, 6624.47],
-          },
-          {
-            x: new Date(1538787600000),
-            y: [6624.53, 6636.03, 6621.68, 6624.31],
-          },
-          {
-            x: new Date(1538789400000),
-            y: [6624.61, 6632.2, 6617, 6626.02],
-          },
-          {
-            x: new Date(1538791200000),
-            y: [6627, 6627.62, 6584.22, 6603.02],
-          },
-          {
-            x: new Date(1538793000000),
-            y: [6605, 6608.03, 6598.95, 6604.01],
-          },
-          {
-            x: new Date(1538794800000),
-            y: [6604.5, 6614.4, 6602.26, 6608.02],
-          },
-          {
-            x: new Date(1538796600000),
-            y: [6608.02, 6610.68, 6601.99, 6608.91],
-          },
-          {
-            x: new Date(1538798400000),
-            y: [6608.91, 6618.99, 6608.01, 6612],
-          },
-          {
-            x: new Date(1538800200000),
-            y: [6612, 6615.13, 6605.09, 6612],
-          },
-          {
-            x: new Date(1538802000000),
-            y: [6612, 6624.12, 6608.43, 6622.95],
-          },
-          {
-            x: new Date(1538803800000),
-            y: [6623.91, 6623.91, 6615, 6615.67],
-          },
-          {
-            x: new Date(1538805600000),
-            y: [6618.69, 6618.74, 6610, 6610.4],
-          },
-          {
-            x: new Date(1538807400000),
-            y: [6611, 6622.78, 6610.4, 6614.9],
-          },
-          {
-            x: new Date(1538809200000),
-            y: [6614.9, 6626.2, 6613.33, 6623.45],
-          },
-          {
-            x: new Date(1538811000000),
-            y: [6623.48, 6627, 6618.38, 6620.35],
-          },
-          {
-            x: new Date(1538812800000),
-            y: [6619.43, 6620.35, 6610.05, 6615.53],
-          },
-          {
-            x: new Date(1538814600000),
-            y: [6615.53, 6617.93, 6610, 6615.19],
-          },
-          {
-            x: new Date(1538816400000),
-            y: [6615.19, 6621.6, 6608.2, 6620],
-          },
-          {
-            x: new Date(1538818200000),
-            y: [6619.54, 6625.17, 6614.15, 6620],
-          },
-          {
-            x: new Date(1538820000000),
-            y: [6620.33, 6634.15, 6617.24, 6624.61],
-          },
-          {
-            x: new Date(1538821800000),
-            y: [6625.95, 6626, 6611.66, 6617.58],
-          },
-          {
-            x: new Date(1538823600000),
-            y: [6619, 6625.97, 6595.27, 6598.86],
-          },
-          {
-            x: new Date(1538825400000),
-            y: [6598.86, 6598.88, 6570, 6587.16],
-          },
-          {
-            x: new Date(1538827200000),
-            y: [6588.86, 6600, 6580, 6593.4],
-          },
-          {
-            x: new Date(1538829000000),
-            y: [6593.99, 6598.89, 6585, 6587.81],
-          },
-          {
-            x: new Date(1538830800000),
-            y: [6587.81, 6592.73, 6567.14, 6578],
-          },
-          {
-            x: new Date(1538832600000),
-            y: [6578.35, 6581.72, 6567.39, 6579],
-          },
-          {
-            x: new Date(1538834400000),
-            y: [6579.38, 6580.92, 6566.77, 6575.96],
-          },
-          {
-            x: new Date(1538836200000),
-            y: [6575.96, 6589, 6571.77, 6588.92],
-          },
-          {
-            x: new Date(1538838000000),
-            y: [6588.92, 6594, 6577.55, 6589.22],
-          },
-          {
-            x: new Date(1538839800000),
-            y: [6589.3, 6598.89, 6589.1, 6596.08],
-          },
-          {
-            x: new Date(1538841600000),
-            y: [6597.5, 6600, 6588.39, 6596.25],
-          },
-          {
-            x: new Date(1538843400000),
-            y: [6598.03, 6600, 6588.73, 6595.97],
-          },
-          {
-            x: new Date(1538845200000),
-            y: [6595.97, 6602.01, 6588.17, 6602],
-          },
-          {
-            x: new Date(1538847000000),
-            y: [6602, 6607, 6596.51, 6599.95],
-          },
-          {
-            x: new Date(1538848800000),
-            y: [6600.63, 6601.21, 6590.39, 6591.02],
-          },
+          [new Date("2023-06-01").getTime(), 10], // Data e número de pessoas cadastradas
+          [new Date("2023-06-05").getTime(), 15],
+          [new Date("2023-06-10").getTime(), 8],
+          [new Date("2023-06-15").getTime(), 12],
+          // Adicione mais datas e números de pessoas cadastradas conforme necessário
         ],
       },
     ],
@@ -863,11 +714,35 @@ const Crypto = memo((props) => {
                 </div>
                 <Card.Body>
                   <Chart
-                    options={chart5.options}
+                    options={{
+                      ...chart5?.options,
+                      xaxis: {
+                        ...chart5?.options?.xaxis,
+                        type: "datetime", // Define o tipo do eixo x como datetime para usar datas
+                        labels: {
+                          ...chart5?.options?.xaxis?.labels,
+                          datetimeUTC: false, // Define se as datas estão em UTC (true) ou não (false)
+                          format: "dd MMM", // Formato dos rótulos (dia e mês)
+                        },
+                      },
+                      tooltip: {
+                        ...chart5?.options?.tooltip,
+                        x: {
+                          ...chart5?.options?.tooltip?.x,
+                          format: "dd MMM yyyy", // Formato do valor exibido no tooltip (dia, mês e ano)
+                        },
+                        y: {
+                          ...chart5?.options?.tooltip?.y,
+                          formatter: function (value) {
+                            return value + " pessoas"; // Adiciona o texto 'pessoas' ao valor exibido no tooltip
+                          },
+                        },
+                      },
+                    }}
                     series={chart5.series}
                     type="candlestick"
                     height="280"
-                  ></Chart>
+                  />
                 </Card.Body>
               </Card>
             </Col>
@@ -878,9 +753,11 @@ const Crypto = memo((props) => {
             <div className=" p-4 d-flex align-items-center justify-content-between flex-wrap pb-0">
               <div className="header-title">
                 <h6 className="mb-2">Estatistica 2023</h6>
-                <h3 className="mb-2">Total 26,246.00</h3>
+                <h3 className="mb-2">
+                  Total {statistc?.totalInscritos} Inscritos
+                </h3>
                 <p className="mb-0 text-danger bg-white p-1 px-3 rounded">
-                  526.23(-2.42%) Por dia
+                  {statistc?.totalInscritos} Inscritos
                 </p>
               </div>
               <div className="text-end">
@@ -912,39 +789,26 @@ const Crypto = memo((props) => {
                 <p className="mb-0 text-white mt-2">+1.2%</p>
               </div>
             </div>
-            <Card.Body className="pt-0">
+            <Card.Body className="pt-0" style={{ height: "300px" }}>
               <hr />
               <h4 className="mb-3">Categoria</h4>
               <div className="d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <div className="ms-2">
-                    <h6>Puniv</h6>
-                    <p className="mb-0">234 Candidatos</p>
-                  </div>
-                </div>
-                <h5 className="text-white">24,3%</h5>
+                {Category?.map((item) => (
+                  <>
+                    <div className="d-flex align-items-center">
+                      <div className="ms-2">
+                        <h6>{item?.nome}</h6>
+                        <p className="mb-0">
+                          {statistc?.totalInscritos} Candidatos
+                        </p>
+                      </div>
+                    </div>
+                    <h5 className="text-white">
+                      {statistc?.percentagemRapazesInscritos}%
+                    </h5>
+                  </>
+                ))}
               </div>
-              <hr />
-              <div className="d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <div className="ms-2">
-                    <h6>Politécnico</h6>
-                    <p className="mb-0">100 Candidato</p>
-                  </div>
-                </div>
-                <h5 className="text-white">13%</h5>
-              </div>
-              <hr />
-              <div className="d-flex align-items-center justify-content-between">
-                <div className="d-flex align-items-center">
-                  <div className="ms-2">
-                    <h6>Saúde</h6>
-                    <p className="mb-0">821 Candidato</p>
-                  </div>
-                </div>
-                <h5 className="text-white">86%</h5>
-              </div>
-              <hr />
             </Card.Body>
           </Card>
         </Col>

@@ -98,9 +98,12 @@ const FuncionarioAdd = memo(() => {
   });
 
   async function getFile(data) {
-    const dataD = await api.post("/file", data);
-
-    return dataD.data;
+    try {
+      const dataD = await api.post("/file", data);
+      return dataD.data;
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
